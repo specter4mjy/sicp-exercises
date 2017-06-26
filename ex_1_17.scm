@@ -1,0 +1,13 @@
+(define (multiply a b)
+  (define (even? n)
+    (= (remainder n 2) 0))
+  (define (halve m)
+    (/ m 2))
+  (define (double k)
+    (* k 2))
+  (cond ((= b 0) 0)
+        ((= b 1) a)
+        ((even? b) (double (multiply a (halve b))))
+        (else (+ a (multiply a (- b 1))))))
+
+(multiply 8 8)

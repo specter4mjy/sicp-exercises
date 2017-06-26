@@ -1,0 +1,21 @@
+;; (define (expt b n)
+;;   (define (even? m)
+;;     (= (remainder m 2) 0 ))
+;;   (define (iter b n a)
+;;     (cond ((= n 0) a)
+;;           ((even? n) (iter b (- n 1) (* a b)))
+;;           (else (iter (* b b)  (- (/ (+ n 1) 2) 1) (* a b)))))
+;;   (iter b n 1))
+
+;; (expt 11 3)
+
+(define (expt b n)
+  (define (even? m)
+    (= (remainder m 2) 0))
+  (define (iter b n a)
+    (cond ((= n 0) a)
+          ((even? n) (iter (square b) (/ n 2) a))
+          (else (iter b (- n 1) (* a b)))))
+  (iter b n 1))
+
+(expt 3 3)
