@@ -4,10 +4,10 @@
         (else (cons (square-tree (car subtree))
                     (square-tree (cdr subtree))))))
 
-(define (square-list subtree)
+(define (square-tree subtree)
   (map (lambda (subtree)
-         (cond ((not (pair?)) (sqaure subtree))
-               (else (square-list subtree))))
+         (cond ((not (pair? subtree)) (square subtree))
+               (else (square-tree subtree))))
        subtree))
 
 ;; test
